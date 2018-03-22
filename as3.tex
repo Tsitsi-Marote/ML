@@ -1,0 +1,154 @@
+\documentclass[10pt]{article}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\title{Assignment 3}
+\author{Meriam Elabor, 1076589}
+\date{\today}
+\begin{document}
+\maketitle
+\subsection*{Question 1.1}
+\begin{tabular}{ 
+|p{4cm}||p{4cm}|p{4cm}|  }
+ \hline
+ \multicolumn{3}{|c|}{1-KNN} \\
+ \hline
+ Record & Distance from the record& Label of the record\\
+ \hline
+ 7 & 1.29007933 & -1\\
+ \hline
+ \multicolumn{2}{|c|}{Prediction} & -1\\
+ \hline
+ 
+\end{tabular}
+
+\bigskip
+\subsection*{Question 1.2}
+\begin{tabular}{ 
+|p{4cm}||p{4cm}|p{4cm}|  }
+ \hline
+ \multicolumn{3}{|c|}{3-KNN} \\
+ \hline
+ 
+ Record & Distance from the record& Label of the record\\
+ \hline
+ 27&1.36993215&1\\
+ 22&1.65639809&1\\
+ 40&2.09803532&1\\
+ \hline
+ \multicolumn{2}{|c|}{Prediction} & 1\\
+ \hline
+ 
+\end{tabular}
+
+\bigskip
+
+\subsection*{Question 1.3}
+\begin{tabular}{ 
+|p{4cm}||p{4cm}|p{4cm}|  }
+ \hline
+ \multicolumn{3}{|c|}{5-KNN} \\
+ \hline
+ 
+ Record & Distance from the record& Label of the record\\
+ \hline
+ 30&3.23194266&1\\
+ 9&5.03028237&-1\\
+ 37&5.2278505&1\\
+ 38&5.23353427&1\\
+ 40&5.61435592&1\\
+ \hline
+ \multicolumn{2}{|c|}{Prediction} & 1\\
+ \hline
+ 
+\end{tabular}
+
+\bigskip
+\subsection*{Question 1.4}
+\begin{tabular}{ 
+|p{4cm}||p{4cm}|p{4cm}|  }
+ \hline
+ \multicolumn{3}{|c|}{Testing Error Rates} \\
+ \hline
+ 
+ 1-NN Test Error Rate & 3-NN Test Error Rate & 5-NN Test Error Rate\\
+ \hline
+ 0.025&0.05&0.075\\
+ \hline
+ 
+\end{tabular}
+
+\bigskip
+
+\subsection*{Question 2.1}
+$ h_{\Theta}(x) \in (1,-1)$
+
+\subsection*{Question 2.2}
+\noindent let $J(\Theta) = \frac{1}{N}\sum_{n = 1}^{N} (h_{\Theta}(x^{n}) - y^{n})^{2}$,\quad
+\noindent $ h_{\Theta}(x^{n}) = \frac{2}{1 + e^{\Theta^{T}.x}} - 1 $,\quad
+\noindent $ g_{\Theta}(x^{n}) = \frac{1}{1 + e^{\Theta^{T}.x}} $,\quad
+\noindent then $\forall k = \{0, ..., 4\}$\\ \medskip
+
+\noindent $\frac{\partial J(\Theta)}{\partial \theta_{k}} = \frac{\partial J(\Theta)}{\partial h_{\Theta}(x^{n})} . \frac{\partial h_{\Theta}(x^{n})}{\partial \theta_{k}}$\\
+\noindent $\frac{\partial J(\Theta)}{\partial h_{\Theta}(x^{n})} = \frac{2}{N}\sum_{n = 1}^{N} (h_{\Theta}(x^{n}) - y^{n})$ \\
+\noindent $\frac{\partial h_{\Theta}(x^{n})}{\partial \theta_{k}} = \frac{2 x_{k} e^{\Theta^{T}.x}}{(1 + e^{\Theta^{T}.x})^{2}} = 2 x_{k} g_{\Theta}(x^{n}) (1 - g_{\Theta}(x^{n}))$\\
+\noindent thus $\frac{\partial J(\Theta)}{\partial \theta_{k}} = 4 x_{k} \frac{1}{N}\sum_{n = 1}^{N} (h_{\Theta}(x^{n}) - y^{n}) g_{\Theta}(x^{n}) (1 - g_{\Theta}(x^{n}))$ \\ \bigskip
+
+\noindent and $\theta_{k} \to \theta_{k} - \alpha 4 x_{k} \frac{1}{N}\sum_{n = 1}^{N} (h_{\Theta}(x^{n}) - y^{n}) g_{\Theta}(x^{n}) (1 - g_{\Theta}(x^{n}))$, $\forall k = \{0, ..., 4\}$
+
+\subsection*{Question 2.3}
+\begin{tabular}{ 
+|p{4cm}||p{5cm}|p{4cm}|  }
+ \hline
+ \multicolumn{3}{|c|}{Logistic Regression Classifier} \\
+ \hline
+ 
+ Testing record & Classifier Output $h_{\Theta}(x^{(n)})$ & Final Output\\
+ \hline
+ 5&-0.949479&-1\\
+ 10&-0.991887&-1\\
+ 15&-0.996641&-1\\
+ 20&-0.992353&-1\\
+ 25&0.893525&1\\
+ 30&0.968980&1\\
+ 35&0.991332&1\\
+ 40&0.983889&1\\
+ \hline
+ 
+\end{tabular}
+
+\pagebreak 
+\subsection*{Question 3.1}
+let $f(X) = \frac{1}{1 + e^{X}}$,\quad $ X \in \mathbb{R} $ then\\
+$h_{\Theta}(x) = g_{2} = f(g_{1} \theta_{6} + x_{0} \theta_{5}) $,  $h_{\Theta}(x) \in (0, 1)$\\
+$g_{1} = f(x_{0} \theta_{0} + x_{1} \theta_{1} + x_{2} \theta_{2} + x_{3} \theta_{3} + x_{4} \theta_{4})$
+\subsection*{Question 3.2}
+\noindent let $f(X) = \frac{1}{1 + e^{X}}$,\quad $ X \in \mathbb{R} $ and\\
+\noindent $J(\Theta) = (h_{\Theta}(x) - y)^{2}$ then\\
+\noindent $\frac{d}{d X} f(X) = f(X) (1 - f(X))$ \\ 
+\noindent and \quad $\forall k = \{5, 6\}$ \\ \bigskip
+
+\noindent $\frac{\partial J(\Theta)}{\partial \theta_{k}} = \frac{\partial J(\Theta)}{\partial h_{\Theta}(x)} . \frac{\partial h_{\Theta}(x)}{\partial \theta_{k}}$\\
+\noindent $\frac{\partial J(\Theta)}{\partial h_{\Theta}(x)} = 2 (h_{\Theta}(x) - y)$ \\
+\noindent $\frac{\partial h_{\Theta}(x)}{\partial \theta_{k}} = 2 x_{k} h_{\Theta}(x) (1 - h_{\Theta}(x))$\\
+\noindent thus $\frac{\partial J(\Theta)}{\partial \theta_{k}} = 4 x_{k} (h_{\Theta}(x) - y) h_{\Theta}(x) (1 - g_{\Theta}(x))$ \\ \bigskip
+
+\noindent and $\theta_{k} \to \theta_{k} - \alpha 4 x_{k} (h_{\Theta}(x) - y) h_{\Theta}(x) (1 - h_{\Theta}(x))$, $\forall k = \{5, 6\}$ \\
+
+\noindent \begin{tikzpicture}
+\draw [thick,dash dot] (0,1) -- (10,1);
+\end{tikzpicture}
+
+\noindent $\forall k = \{0, ..., 4\}$ \\ \bigskip
+
+\noindent $\frac{\partial J(\Theta)}{\partial \theta_{k}} = \frac{\partial J(\Theta)}{\partial h_{\Theta}(x)} . \frac{\partial h_{\Theta}(x)}{\partial g1} . \frac{\partial g1}{\partial \theta_{k}}$\\
+\noindent $\frac{\partial J(\Theta)}{\partial h_{\Theta}(x)} = 2 (h_{\Theta}(x) - y)$ \\
+\noindent $\frac{\partial h_{\Theta}(x)}{\partial g1} = 2 \theta_{6} h_{\Theta}(x) (1 - h_{\Theta}(x))$\\
+\noindent $\frac{\partial g1}{\partial \theta_{k}} = x_{k} g1 (1 - g1)$\\
+\noindent thus $\frac{\partial J(\Theta)}{\partial \theta_{k}} = 4 x_{k} \theta_{6} (h_{\Theta}(x) - y) h_{\Theta}(x) (1 - h_{\Theta}(x)) g1 (1 - g1)$ \\ \bigskip
+
+\noindent and $\theta_{k} \to \theta_{k} - \alpha 4 x_{k} \theta_{6} (h_{\Theta}(x) - y) h_{\Theta}(x) (1 - h_{\Theta}(x)) g1 (1 - g1)$, $\forall k = \{0, ..., 4\}$
+
+
+\end{document}

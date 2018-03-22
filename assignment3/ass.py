@@ -1,4 +1,3 @@
-
 import numpy as np
 
 def h(Theta, X, n):
@@ -12,10 +11,10 @@ def KNN(x_training, y_training, x_testing, K):
 	s = np.sum(y_training[i[np.arange(K)],:])
 	l = (s > 0.0) * 1.0 + (s<=0.0) * -1.0
 	aa = np.transpose([d[i[np.arange(K)]]])
-	bb = np.transpose([i[np.arange(K)]])
+	bb = np.transpose([i[np.arange(K)]+1])
 	cc = y_training[i[np.arange(K)],:]
 	c = np.concatenate((bb, aa, cc), axis=1)
-	#print(c)
+	print(c)
 	return l
 
 def KNN_error(K, x_training, y_training, x_testing, y_testing):
@@ -35,6 +34,9 @@ y_tr = a[:, -1:len(a[0])]
 x_ts = b[:, :-1]
 x_ts = np.hstack((np.ones((x_ts.shape[0],1)), x_ts))
 y_ts = b[:, -1:len(b[0])]
+q0 = np.array([1.,1.781900,6.917600,-1.274400,-1.575900])
+print("Question 0")
+print(KNN(x_tr, y_tr, q0, 3))
 
 q1 = np.array([1.,3.618100,-3.745400,2.827300,-0.712080])
 print("Question 1")

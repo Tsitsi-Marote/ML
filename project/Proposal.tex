@@ -59,7 +59,7 @@
 %----------------------------------------------------------------------------------------
 
 \HRule \\[0.4cm]
-{ \huge \bfseries Reinforcement learning of the Game Pacman}\\[0.4cm] % Title of your document
+{ \huge \bfseries Supervised Learning for acne Tracking Application}\\[0.4cm] % Title of your document
 \HRule \\[1.5cm]
  
 %----------------------------------------------------------------------------------------
@@ -103,30 +103,29 @@ Meriam \textsc{Elabor} \\1076589 % Supervisor's Name
 \end{titlepage}
 
 
-\begin{abstract}
-In this research proposal we propose the use of reinforcement learning in training the pacman game. Pacman is an arcade game where the hero tries to eat all the food while avoiding being eaten by monsters. Extra points can be gained for eating the food and the monsters. Reinforcement learning is learning that involves mapping from situations to actions. The learner is not told which action to take, but must learn from the reward system\cite{Introduction}. We wanted an environment that was both intuitive and rich. Pac-Man is intuitive in the sense that it consists of objects moving around on a grid, a setting that can be easily mapped onto the general definitions of search problems and Markov decision processes \cite{teaching}. We are going to consider different ways of representing our states and different reinforcement learning techniques. 
-\end{abstract} 
+\section*{Project Description}
+The aim of this report is to investigate and compare various supervised learning techniques applied to the problem of acne detection and classification \cite{mobile}. \\ \medskip 
 
-\begin{figure}
-\centering
-\includegraphics[width=0.3\textwidth]{pacman2.png}
-\caption{\label{fig:pacman}Pacman \cite{teaching}.}
-\end{figure}
+The process of counting and classifying acne lesions is an important part of the treatment process and can be tedious and may yield inaccurate results if not done properly. As a dermatological problem that affects many people\cite{pathogens}, we propose a mobile application that will be able to accurately track the progress of the user. Acne lesions can be classified into several skin types, including comedone, pustule, reddish papule, with or scarring without. \cite{mobile} As such, speed and image resolution will be a significant constraint. \\ \medskip
+
+Much work has been done to solve this problem with various computational techniques\cite{acne1, acne2, acne3, acne4}. As such, we will consider different types of features and multiple approaches to extract features and to count an classify individual lesions. This process will most likely involve skin detection\cite{skin1, skin2} and other computer vision techniques as a part of preprocessing. \\ \medskip
 
 
 %\section{Application of Reinforcement Learning in Pacman}
 %The aim of this research is to implement reinforcement learning to ensure that the pacman makes its own decisions throughout the game. This technique trains the game based on the rewards it gets for moves\cite{Games}. Points will be used to train pacman to know when a move is a good or bad move. Even when multiple moves have been done before getting a reward, pacman still has to be able to tell which moves were good and which ones were bad\cite{Games}. 
 
-\section{Deliverables}
+\section*{Deliverables}
+As a part of the report, the following will be produced amongst others:
 \begin{itemize}
-\item Reproduce the pacman game.
-\item Create an agent to play the game.
-\item Use various techniques to teach the agent.
-\item Compare performance. \cite{*}
+\item A suitable skin detection algorithm.
+\item A database of labeled images of acne patients referenced from \cite{data}
+\item Various methods to recognize and classify acne lesions
+\item Comparison of these methods performace
+\item A mobile application utilizing the most appropriate method. \cite{*}
 \end{itemize}
 
 \bibliographystyle{ieeetr}
-\bibliography{title_page_1.bib}
+\bibliography{ml}
 
 
 \end{document}
